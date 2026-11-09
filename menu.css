@@ -1,0 +1,20 @@
+/* 共通：ハンバーガーメニュー */
+.nav-btn{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.nav-btn:hover{background:rgba(255,255,255,.24)}
+.nav-btn:focus-visible,.nav-close:focus-visible,.nav-list a:focus-visible{outline:3px solid #E9C46A;outline-offset:2px}
+.nav-panel{position:fixed;inset:0;z-index:100;background:#151F3F;color:#fff;display:none;flex-direction:column;overflow-y:auto;font-family:'Noto Sans JP',sans-serif}
+.nav-panel.open{display:flex}
+body.nav-open{overflow:hidden}
+.nav-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#3C5FB5}
+.nav-top .nav-brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;font-size:15px;letter-spacing:.06em}
+.nav-top .nav-brand img{width:36px;height:36px;border-radius:50%;display:block}
+.nav-close{width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.nav-list{list-style:none;margin:0 auto;padding:16px 20px 24px;width:100%;max-width:640px;box-sizing:border-box}
+.nav-list li{border-bottom:1px solid rgba(255,255,255,.14)}
+.nav-list a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;color:#fff;text-decoration:none;font-size:17px;font-weight:700}
+.nav-list a small{display:block;font-size:11px;font-weight:500;color:#BFD0F0;letter-spacing:.08em}
+.nav-list a[aria-current="page"]{color:#E9C46A}
+.nav-list a[aria-current="page"] small{color:#E9C46A}
+.nav-list svg{flex:0 0 auto;opacity:.7}
+.nav-sns{margin:0 auto;padding:0 20px 32px;width:100%;max-width:640px;box-sizing:border-box}
+.nav-sns a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;border:1.5px solid rgba(255,255,255,.6);border-radius:999px;color:#fff;text-decoration:none;font-weight:700;font-size:15px}
