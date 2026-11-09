@@ -60,7 +60,17 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
 /* 解説リスト */
 .points{padding:32px 0 8px}
 .points h2{font-size:22px}
-.point{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line);scroll-margin-top:16px}
+.point{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line);scroll-margin-top:170px}
+/* 追随する小さなカード */
+.mini{position:-webkit-sticky;position:sticky;top:0;z-index:5;margin:14px -20px 0;padding:10px 20px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 6px 12px -8px rgba(21,31,63,.25);display:flex;gap:14px;align-items:center}
+.mini-card{position:relative;flex:0 0 auto;width:96px}
+.mini-card img{display:block;width:100%;height:auto}
+.mpin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:rgba(21,31,63,.55);color:#fff;border:1.5px solid #fff;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;line-height:1;transition:transform .2s,background .2s}
+.mpin.on{background:#E8590C;transform:scale(1.45);z-index:2;box-shadow:0 0 0 3px rgba(232,89,12,.3)}
+.mini-txt{flex:1 1 auto;min-width:0}
+.mini-txt small{display:block;font-size:11px;color:var(--muted);line-height:1.5}
+.mini-txt b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:16px;font-weight:900;line-height:1.5;margin-top:2px}
+.mini-txt .mnum{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#E8590C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
 .point:last-child{border-bottom:0}
 .num{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
 .point h3{font-size:17px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
@@ -141,6 +151,23 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
   <div class="wrap">
     <section class="points" aria-labelledby="points-h">
       <h2 id="points-h">8つのポイント</h2>
+      <div class="mini" aria-hidden="true">
+        <div class="mini-card">
+          <img src="images/feature_card.webp" alt="" width="860" height="1196">
+          <span class="mpin" data-n="1" style="left:42%;top:30%">1</span>
+          <span class="mpin" data-n="2" style="left:9%;top:55%">2</span>
+          <span class="mpin" data-n="3" style="left:89%;top:68%">3</span>
+          <span class="mpin" data-n="4" style="left:5%;top:79.5%">4</span>
+          <span class="mpin" data-n="5" style="left:69%;top:21%">5</span>
+          <span class="mpin" data-n="6" style="left:4%;top:91%">6</span>
+          <span class="mpin" data-n="7" style="left:74%;top:86%">7</span>
+          <span class="mpin" data-n="8" style="left:80%;top:96.5%">8</span>
+        </div>
+        <div class="mini-txt">
+          <small>いま見ているポイント</small>
+          <b><span class="mnum" id="mini-num">1</span><span id="mini-title">メインビジュアル</span></b>
+        </div>
+      </div>
 
       <div class="point" id="p1">
         <div class="num">1</div>
@@ -249,5 +276,28 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
   <img src="images/logo.png" alt="">
   <p>© 2026 一般社団法人The Yokohama Movement</p>
 </footer>
+<script>
+(function(){
+  var pts=[].slice.call(document.querySelectorAll('.point'));
+  var pins=[].slice.call(document.querySelectorAll('.mpin'));
+  var num=document.getElementById('mini-num'), ttl=document.getElementById('mini-title');
+  if(!pts.length||!num) return;
+  function set(el){
+    var n=el.id.replace('p','');
+    var h=el.querySelector('h3'); var t=h?h.childNodes[0].textContent.trim():'';
+    num.textContent=n; ttl.textContent=t;
+    pins.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-n')===n);});
+  }
+  set(pts[0]);
+  function update(){
+    var line=window.innerHeight*0.45, cur=pts[0];
+    pts.forEach(function(el){ if(el.getBoundingClientRect().top<line) cur=el; });
+    set(cur);
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
 </body>
 </html>
