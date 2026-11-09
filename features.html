@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カードの特徴｜THE YOKOHAMA CARD</title>
+<meta name="description" content="THE YOKOHAMA CARDの1枚に込めた仕掛け。知る・行く・集める・遊ぶ、4つの役割をカードの各部分ごとに紹介します。">
+<meta property="og:title" content="カードの特徴｜THE YOKOHAMA CARD">
+<meta property="og:description" content="1枚のトレカに込めた仕掛け。知る・行く・集める・遊ぶ、4つの役割を紹介します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Lora:ital,wght@1,500;1,600&amp;display=swap">
+<style>
+:root{
+  --navy:#151F3F; --navy-2:#0E1530; --brand:#3C5FB5; --ink-2:#33405F; --muted:#55607A;
+  --ice:#EAF5FB; --line:#D5E3EE; --link:#2B4E9E;
+  --know:#2B4E9E; --go:#0F7A6B; --collect:#B4500F; --play:#8A3FA8;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--navy);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.8;-webkit-text-size-adjust:100%}
+a{color:var(--link)}a:hover{color:var(--navy)}
+img{max-width:100%}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--link)}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
+
+/* ヘッダー */
+.hdr{background:var(--brand);padding:12px 20px}
+.hdr-in{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.brand img{width:36px;height:36px;border-radius:50%;display:block}
+.brand span{font-weight:900;font-size:15px;letter-spacing:.06em;color:#fff}
+.pill-link{color:#fff;font-size:13px;font-weight:700;text-decoration:none;border:1.5px solid #fff;border-radius:999px;padding:8px 14px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
+.pill-link:hover{color:#fff;background:rgba(255,255,255,.12)}
+
+/* パンくず */
+.crumb{font-size:12px;color:var(--muted);padding:14px 0 0}
+.crumb a{color:var(--muted)}
+
+/* 冒頭 */
+.intro{padding:20px 0 8px}
+.intro h1{margin-top:6px;font-size:28px}
+.intro p.lead{margin:14px 0 0;line-height:2}
+.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:20px}
+.role{border-radius:14px;padding:12px 4px 10px;text-align:center;color:#fff}
+.role b{display:block;font-size:20px;font-weight:900;line-height:1.3}
+.role small{display:block;font-size:11px;line-height:1.5;opacity:.95}
+.r-know{background:var(--know)}.r-go{background:var(--go)}.r-collect{background:var(--collect)}.r-play{background:var(--play)}
+
+/* 図解 */
+.diagram{background:var(--ice);margin-top:28px;padding:28px 20px 20px}
+.card-fig{position:relative;max-width:340px;margin:0 auto}
+.card-fig img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 20px rgba(21,31,63,.22))}
+.pin{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--navy);color:#fff;border:2.5px solid #fff;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.3);text-decoration:none}
+.pin:hover{color:#fff;background:var(--brand)}
+.fig-note{margin:14px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+
+/* 解説リスト */
+.points{padding:32px 0 8px}
+.points h2{font-size:22px}
+.point{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line);scroll-margin-top:16px}
+.point:last-child{border-bottom:0}
+.num{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
+.point h3{font-size:17px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;border-radius:999px;padding:1px 10px;line-height:1.8}
+.point p{margin:6px 0 0;font-size:15px;line-height:1.9;color:var(--ink-2)}
+.soon{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--play);border:1.5px solid var(--play);border-radius:999px;padding:2px 12px}
+.santo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.santo div{background:var(--ice);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.6;color:var(--ink-2)}
+.santo b{display:block;font-size:15px;color:var(--navy)}
+
+/* 裏面 */
+.back{background:var(--brand);color:#fff;padding:40px 0;margin-top:24px}
+.back .eyebrow{color:#DCEBFA}
+.back h2{color:#fff;font-size:22px;margin-top:6px}
+.back-row{display:flex;gap:20px;align-items:center;margin-top:20px;flex-wrap:wrap}
+.back-row img{width:150px;height:auto;flex:0 0 auto;filter:drop-shadow(0 10px 18px rgba(10,20,50,.4))}
+.back-row div{flex:1 1 200px;min-width:0}
+.back p{margin:0;line-height:1.9;font-size:15px;color:#fff}
+.spec{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.spec li{display:flex;gap:10px}
+.spec li span:first-child{flex:0 0 72px;color:#DCEBFA}
+
+/* 締め */
+.series{padding:40px 0}
+.series h2{font-size:22px;margin-top:6px}
+.series p{margin:14px 0 0;line-height:2}
+.btns{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;box-sizing:border-box;border-radius:999px;padding:14px 24px;font-weight:700;font-size:15px;text-decoration:none}
+.btn-dark{background:var(--navy);color:#fff}.btn-dark:hover{color:#fff;background:#24305a}
+.btn-line{border:1.5px solid var(--navy);color:var(--navy)}
+
+.ftr{background:var(--navy-2);padding:24px 20px;text-align:center}
+.ftr img{width:44px;height:44px;border-radius:50%}
+.ftr p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="./"><img src="images/logo.png" alt=""><span>THE YOKOHAMA CARD</span></a>
+    <a class="pill-link" href="./#get">入手方法</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくずリスト"><a href="./">トップ</a> ＞ カードの特徴</nav>
+
+    <section class="intro">
+      <p class="eyebrow">カードの特徴</p>
+      <h1>1枚のトレカに<br>込めた仕掛け</h1>
+      <p class="lead">THE YOKOHAMA CARD は、ただ眺めるだけのカードではありません。1枚の中に、横浜を<strong>「知る・行く・集める・遊ぶ」</strong>ための4つの役割を詰めこんでいます。</p>
+      <div class="roles">
+        <div class="role r-know"><b>知る</b><small>写真と言葉</small></div>
+        <div class="role r-go"><b>行く</b><small>その場所へ</small></div>
+        <div class="role r-collect"><b>集める</b><small>番号で</small></div>
+        <div class="role r-play"><b>遊ぶ</b><small>ゲームに</small></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="diagram" aria-label="カードの各部分の図解">
+    <div class="card-fig">
+      <img src="images/feature_card.webp" alt="見本カード：日本で最初のガス灯（横浜の歴史 NO.003）" width="860" height="1196">
+      <a class="pin" href="#p1" style="left:42%;top:30%" aria-label="1 メインビジュアル">1</a>
+      <a class="pin" href="#p2" style="left:9%;top:55%" aria-label="2 カードの種類のアイコン">2</a>
+      <a class="pin" href="#p3" style="left:89%;top:68%" aria-label="3 名前とふりがな">3</a>
+      <a class="pin" href="#p4" style="left:5%;top:79.5%" aria-label="4 説明文3行">4</a>
+      <a class="pin" href="#p5" style="left:69%;top:21%" aria-label="5 QRコード">5</a>
+      <a class="pin" href="#p6" style="left:4%;top:91%" aria-label="6 シリーズ名と番号">6</a>
+      <a class="pin" href="#p7" style="left:74%;top:86%" aria-label="7 ステータス">7</a>
+      <a class="pin" href="#p8" style="left:80%;top:96.5%" aria-label="8 三塔マークと数字">8</a>
+    </div>
+    <p class="fig-note">見本：横浜の歴史 NO.003「日本で最初のガス灯」<br>番号をタップすると、説明へ移動します</p>
+  </section>
+
+  <div class="wrap">
+    <section class="points" aria-labelledby="points-h">
+      <h2 id="points-h">8つのポイント</h2>
+
+      <div class="point" id="p1">
+        <div class="num">1</div>
+        <div>
+          <h3>メインビジュアル <span class="tag r-know">知る</span></h3>
+          <p>実際に横浜の街を歩いて撮影した写真です。ひとつの場所、ひとつの歴史でも、切り取り方しだいで伝えられることは無限大。思わず目を留める1枚を選んでいます。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p2">
+        <div class="num">2</div>
+        <div>
+          <h3>カードの種類のアイコン <span class="tag r-know">知る</span></h3>
+          <p>左上のマークで、建物やお店など、カードの種類がひと目でわかります。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p3">
+        <div class="num">3</div>
+        <div>
+          <h3>名前とふりがな <span class="tag r-know">知る</span></h3>
+          <p>日本語の名前にはふりがなを、その下には英字の筆記体を。読みやすさとおしゃれさを両立し、海外から来た人にも伝わります。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p4">
+        <div class="num">4</div>
+        <div>
+          <h3>説明文3行 <span class="tag r-know">知る</span></h3>
+          <p>その場所の歴史や見どころ、知るともっと楽しくなるエピソードを3行に。漢字にはすべてふりがなを付け、小学生でも読めるようにしています。内容は公式な情報で確かめてから書いています。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p5">
+        <div class="num">5</div>
+        <div>
+          <h3>QRコード <span class="tag r-go">行く</span></h3>
+          <p>読み取ると、公式サイトへ。カードを手にしたその場から、次の情報や実際の場所へ向かう入口になります。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p6">
+        <div class="num">6</div>
+        <div>
+          <h3>シリーズ名と番号 <span class="tag r-collect">集める</span></h3>
+          <p>「NO.003／004」で、シリーズの何枚目かがわかります。左下の「2026-AD」はシリーズ番号。番号がそろっていくほど、全部集めたくなります。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p7">
+        <div class="num">7</div>
+        <div>
+          <h3>ステータス <span class="tag r-know">知る</span></h3>
+          <p>「Since 1872」のように、その場所にまつわる年を小さく記しています。何年前から横浜にあるのか、カード同士で比べてみるのも楽しみ方のひとつです。</p>
+        </div>
+      </div>
+
+      <div class="point" id="p8">
+        <div class="num">8</div>
+        <div>
+          <h3>三塔マークと数字 <span class="tag r-play">遊ぶ</span></h3>
+          <p>右下には、J・Q・K・Nのマークと数字。横浜港を見守ってきた「横浜三塔」をモチーフにしています。集めたカードが、そのままカードゲームの山札になります。</p>
+          <div class="santo">
+            <div><b>J ジャック</b>横浜市開港記念会館</div>
+            <div><b>Q クイーン</b>横浜税関</div>
+            <div><b>K キング</b>神奈川県庁本庁舎</div>
+            <div><b>N ニュートラル</b>三塔以外のカード</div>
+          </div>
+          <span class="soon">ゲームの詳細は リリース準備中</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="back" aria-labelledby="back-h">
+    <div class="wrap">
+      <p class="eyebrow">裏面</p>
+      <h2 id="back-h">裏面は、全カード共通のデザイン</h2>
+      <div class="back-row">
+        <img src="images/card_back.webp" alt="THE YOKOHAMA CARD のカード裏面" width="600" height="837">
+        <div>
+          <p>錨（いかり）とYを組み合わせたロゴに、港の空を飛ぶカモメと、横浜の海を表す波。どのカードを裏返しても、ひと目で THE YOKOHAMA CARD とわかります。</p>
+          <ul class="spec">
+            <li><span>サイズ</span><span>63×88mm（一般的なトレカと同じ大きさ）</span></li>
+            <li><span>印刷</span><span>両面カラー</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="series" aria-labelledby="series-h">
+      <p class="eyebrow">シリーズ</p>
+      <h2 id="series-h">テーマを変えて、<br>横浜を描き続けます。</h2>
+      <p>歴史、夜景、建物。年に3〜4つのテーマでシリーズを重ね、集めるほど横浜に詳しくなるコレクションをつくっていきます。</p>
+      <div class="btns">
+        <a class="btn btn-dark" href="./#get">カードの入手方法を見る</a>
+        <a class="btn btn-line" href="./">トップページへ戻る</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="ftr">
+  <img src="images/logo.png" alt="">
+  <p>© 2026 一般社団法人The Yokohama Movement</p>
+</footer>
+</body>
+</html>
