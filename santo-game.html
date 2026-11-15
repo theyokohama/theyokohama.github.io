@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>横浜三塔ゲームの遊び方｜THE YOKOHAMA CARD</title>
+<meta name="description" content="THE YOKOHAMA CARD で遊べる2人用カードバトル「横浜三塔ゲーム」の遊び方。キング・クイーン・ジャックの3つの塔を取り合います。1戦 約10分、デッキは18枚。">
+<meta property="og:title" content="横浜三塔ゲームの遊び方｜THE YOKOHAMA CARD">
+<meta property="og:description" content="キング・クイーン・ジャックの3つの塔を取り合う、2人用のカードバトル。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theyokohama.github.io/santo-game.html">
+<meta property="og:site_name" content="THE YOKOHAMA CARD">
+<meta property="og:image" content="https://theyokohama.github.io/images/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="menu.css">
+<style>
+:root{
+  --ink:#151F3F; --blue:#3C5FB5; --deep:#1E3B82; --mist:#EAF5FB; --foil:#E9C46A; --sub:#4A5573;
+  --tk:#E9C46A; --tq:#EE8FAE; --tj:#6DB3EA; --tn:#D3D9E2;   /* 三塔の色（キング・クイーン・ジャック・ニュートラル） */
+  --mincho:'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --gothic:'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.9;-webkit-text-size-adjust:100%;overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--deep)}
+rt{font-size:.5em;font-weight:500;letter-spacing:0;line-height:1}
+.nav-panel,.nav-list a,.nav-sns a{font-family:var(--gothic)}
+:focus-visible{outline:3px solid var(--foil);outline-offset:3px}
+p,li{text-wrap:pretty}
+
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.sec{padding:60px 0}
+h1,h2,h3{font-family:var(--mincho);font-weight:800;margin:0;letter-spacing:0}
+h2{font-size:24px;line-height:1.6}
+h3{font-size:19px;line-height:1.7}
+.lead{margin:18px 0 0;line-height:2.05;max-width:34em}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 16px;border-radius:6px;font-family:var(--gothic);font-weight:700;font-size:15px;text-decoration:none;text-align:center}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-foil{background:var(--foil);color:var(--ink)}
+.btn:hover{filter:brightness(1.06)}
+
+/* 塔のしるし（色だけに頼らず、必ずK・Q・J・Nの文字つき） */
+.chip{display:inline-block;padding:1px 12px;border-radius:999px;font-weight:700;font-size:.92em;color:var(--ink);white-space:nowrap}
+.k{background:var(--tk)} .q{background:var(--tq)} .j{background:var(--tj)} .n{background:var(--tn)}
+.dot{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;font-family:var(--mincho);font-weight:800;font-size:21px;color:var(--ink);flex:0 0 auto}
+
+/* ヒーロー */
+.hero{background:var(--blue);color:#fff;padding:40px 0 44px}
+.hero .wrap{display:grid;gap:28px}
+.crumb{margin:0;font-size:14px}
+.crumb a{color:#EAF1FC}
+.hero h1{margin-top:10px;font-size:40px;line-height:1.35;color:#fff;letter-spacing:.03em}
+.hero .sub{margin:16px 0 0;font-size:16px;line-height:2;color:#EAF1FC}
+.facts{margin:26px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.4)}
+.facts li{padding:14px 8px 0 0;font-size:13px;line-height:1.6;color:#DCE8FA}
+.facts b{display:block;font-family:var(--mincho);font-size:21px;line-height:1.4;color:#fff}
+.hero-art{display:flex;justify-content:center;align-items:center;gap:10px;padding-top:4px}
+.hero-art img{width:150px;filter:drop-shadow(0 14px 22px rgba(10,20,50,.45))}
+.towers{display:flex;flex-direction:column;gap:12px}
+.towers span{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;color:#fff}
+.foil-edge{height:6px;background:var(--foil)}
+
+/* デッキ */
+.deck{margin:28px 0 0;padding:0;list-style:none;border-top:1px solid #C9D9E6}
+.deck li{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #C9D9E6}
+.deck b{display:block;font-size:17px}
+.deck small{display:block;font-size:14px;color:#33405F;line-height:1.7}
+.note{margin:20px 0 0;max-width:34em;font-size:15px;line-height:2}
+
+/* 流れ */
+.idea{background:var(--mist)}
+.steps{margin:28px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{position:relative;padding:0 0 22px 56px;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--mincho);font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.steps li::after{content:"";position:absolute;left:19px;top:44px;bottom:4px;width:2px;background:#B9CFE0}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps b{display:block;font-family:var(--mincho);font-size:19px;line-height:1.8}
+.steps p{margin:0;font-size:15px;line-height:1.95;color:#33405F}
+.prep{margin:28px 0 0;padding:16px 20px;background:#fff;border-left:4px solid var(--foil)}
+.prep b{display:block;font-size:17px}
+.prep p{margin:4px 0 0;font-size:15px;line-height:1.95;color:#33405F}
+.keep{margin:26px 0 0;font-size:15px;line-height:2}
+.keep strong{font-weight:700}
+
+/* 三すくみ */
+.cycle{margin:24px auto 0;display:block;width:100%;max-width:320px;height:auto}
+.cap{margin:10px 0 0;text-align:center;font-size:15px;font-weight:700;line-height:1.9}
+.tbl{width:100%;margin:26px 0 0;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:12px 6px;border-bottom:1px solid #C9D9E6;text-align:left;vertical-align:middle;line-height:1.6}
+.tbl thead th{font-size:13px;font-weight:700;color:var(--sub);border-bottom:2px solid var(--ink);vertical-align:bottom}
+.tbl td:first-child,.tbl th:first-child{padding-left:0}
+.tbl .num{text-align:center}
+.nrule{margin:16px 0 0;padding:12px 16px;background:#F1F4F8;font-size:15px;line-height:1.9}
+.calc{margin:26px 0 0;padding:18px 20px;background:var(--mist)}
+.calc b{display:block;font-size:16px}
+.calc ul{margin:8px 0 0;padding:0;list-style:none}
+.calc li{font-size:15px;line-height:2}
+.calc strong{font-weight:700}
+
+/* 勝敗 */
+.win{background:var(--mist)}
+.win .tbl th,.win .tbl td{border-bottom-color:#C4D8E6}
+.result{margin:16px 0 0;font-size:15px;line-height:2}
+.judge{margin:26px 0 0;padding:0;list-style:none;border-top:1px solid #C4D8E6}
+.judge li{display:grid;grid-template-columns:7em minmax(0,1fr);gap:8px;padding:14px 0;border-bottom:1px solid #C4D8E6;font-size:15px;line-height:1.8}
+.judge b{font-family:var(--mincho);font-size:17px}
+
+/* カードの見かた */
+.mark-box{display:grid;gap:16px;justify-items:start;margin-top:24px;padding:20px;background:var(--ink);color:#fff}
+.mark-box p{margin:0;font-size:15px;line-height:2;color:#E6EBF5}
+.mark-box b{color:#fff}
+.mark-img{width:198px;height:auto;border-radius:6px}
+.legend{margin:20px 0 0;padding:0;list-style:none;border-top:1px solid #C9D9E6}
+.legend li{display:grid;grid-template-columns:2.2em minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0;border-bottom:1px solid #C9D9E6;font-size:15px;line-height:1.8}
+.legend b{font-family:var(--mincho);font-size:22px}
+
+/* 次へ */
+.next{background:var(--blue);color:#fff}
+.next h2{color:#fff}
+.next .lead{color:#EAF1FC}
+.next .btns{display:grid;gap:12px;margin-top:26px}
+footer{background:#0E1530;padding:28px 20px;text-align:center}
+footer img{width:44px;height:44px;border-radius:50%;margin:0 auto}
+footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
+
+@media (min-width:760px){
+  .sec{padding:92px 0}
+  h2{font-size:32px}
+  .hero{padding:64px 0 64px}
+  .hero .wrap{max-width:900px;grid-template-columns:1.2fr 1fr;align-items:center;gap:40px}
+  .hero h1{font-size:50px}
+  .hero-art img{width:190px}
+  .next .btns{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="nav-panel" id="nav-panel" role="dialog" aria-modal="true" aria-label="サイトメニュー">
+  <div class="nav-top">
+    <a class="nav-brand" href="./"><img src="images/logo.png" alt="">THE YOKOHAMA CARD</a>
+    <button class="nav-close" id="nav-close" type="button" aria-label="メニューを閉じる"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  </div>
+  <ul class="nav-list">
+    <li><a href="./"><span><small>TOP</small>トップ</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+    <li><a href="features.html"><span><small>FEATURES</small>カードの特徴</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+    <li><a href="./#get"><span><small>HOW TO GET</small>カードの入手方法</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+    <li><a href="recruit.html"><span><small>FOR PARTNERS</small>PRカード参加募集</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+    <li><a href="./#about"><span><small>ABOUT US</small>運営団体</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+    <li><a href="./#contact"><span><small>CONTACT</small>お問い合わせ</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li>
+  </ul>
+  <div class="nav-sns"><a href="https://x.com/TheYokohamaMove" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.9 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.5l11.2 14.5z"></path></svg>The Yokohama Movement</a></div>
+</div>
+
+<header class="site-hdr" style="background:#3C5FB5;padding:12px 20px">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="./" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff">
+      <img src="images/logo.png" alt="" style="width:36px;height:36px;border-radius:50%">
+      <span style="font-weight:700;font-size:15px;letter-spacing:.06em;color:#fff">THE YOKOHAMA CARD</span>
+    </a>
+    <button class="nav-btn" id="nav-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-panel"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  </div>
+</header>
+
+<main>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="./">トップ</a>　＞　カードの遊び方</p>
+        <h1>横浜三塔ゲームの<br>遊び方</h1>
+        <p class="sub">キング・クイーン・ジャックの<br>3つの塔を取り合う、2人用のカードバトル。</p>
+        <ul class="facts">
+          <li><b>2人用</b>むかい合って</li>
+          <li><b>約10分</b>1戦の目安</li>
+          <li><b>18枚</b>1人のデッキ</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="images/card_back.webp" alt="THE YOKOHAMA CARD のカード裏面" width="600" height="838">
+        <div class="towers" aria-label="3つの塔">
+          <span><i class="dot k">K</i>キング</span>
+          <span><i class="dot q">Q</i>クイーン</span>
+          <span><i class="dot j">J</i>ジャック</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="foil-edge" aria-hidden="true"></div>
+
+  <!-- デッキ -->
+  <section class="sec">
+    <div class="wrap">
+      <h2>デッキは、1人18枚。<br>2人とも同じ構成。</h2>
+      <ul class="deck">
+        <li><i class="dot k">K</i><div><b>キング　3枚</b><small>数字は 1・1・2</small></div></li>
+        <li><i class="dot q">Q</i><div><b>クイーン　3枚</b><small>数字は 1・1・2</small></div></li>
+        <li><i class="dot j">J</i><div><b>ジャック　3枚</b><small>数字は 1・1・2</small></div></li>
+        <li><i class="dot n">N</i><div><b>ニュートラル　9枚</b><small>数字は 1が6枚、2が3枚</small></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ゲームの流れ -->
+  <section class="sec idea">
+    <div class="wrap">
+      <h2>ゲームの流れ</h2>
+      <div class="prep">
+        <b>はじめる前に</b>
+        <p>デッキをシャッフルして山札にし、5枚引いて手札にします。ジャンケンで先攻を決めましょう。</p>
+      </div>
+      <ol class="steps">
+        <li><b>引く</b><p>山札から1枚引きます。</p></li>
+        <li><b>出す</b><p>手札から1枚を選んで、塔に表向きで出します。</p></li>
+        <li><b>交代</b><p>相手の番になります。</p></li>
+      </ol>
+      <p class="keep">引いて出すので、手札はいつも5枚。各塔で自分の列に置けるのは<strong>4枚まで</strong>です。3塔×4枚で、<strong>12枚ずつ出したら終了</strong>。手札に残った5枚は使いません。</p>
+    </div>
+  </section>
+
+  <!-- 三すくみと点数 -->
+  <section class="sec">
+    <div class="wrap">
+      <h2>どの塔に出すかで、<br>点数が変わる。</h2>
+      <p class="lead">カードは、自分と同じ名前の塔に出せば守り、矢印の先の塔に出せば攻め。攻めると＋2点です。</p>
+
+      <svg class="cycle" viewBox="0 0 320 262" role="img" aria-label="キングはジャックの塔を、ジャックはクイーンの塔を、クイーンはキングの塔を攻める">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#151F3F"/></marker></defs>
+        <g fill="none" stroke="#151F3F" stroke-width="3" marker-end="url(#ah)">
+          <path d="M184 62 L246 168"/>
+          <path d="M226 218 L94 218"/>
+          <path d="M74 168 L136 62"/>
+        </g>
+        <g font-family="'Shippori Mincho',serif" font-weight="800" font-size="30" text-anchor="middle" fill="#151F3F">
+          <circle cx="160" cy="44" r="34" fill="#E9C46A"/><text x="160" y="55">K</text>
+          <circle cx="262" cy="218" r="34" fill="#6DB3EA"/><text x="262" y="229">J</text>
+          <circle cx="58" cy="218" r="34" fill="#EE8FAE"/><text x="58" y="229">Q</text>
+        </g>
+      </svg>
+      <p class="cap">キング → ジャック → クイーン → キング<br><span style="font-weight:500">根もとのカードが、矢印の先の塔を攻めます。</span></p>
+
+      <table class="tbl">
+        <thead><tr><th scope="col">カード</th><th scope="col">守り　＋0<br>自分の塔</th><th scope="col">攻め　＋2<br>矢印の先</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="chip k">キング</span></th><td><span class="chip k">キング塔</span></td><td><span class="chip j">ジャック塔</span></td></tr>
+          <tr><th scope="row"><span class="chip q">クイーン</span></th><td><span class="chip q">クイーン塔</span></td><td><span class="chip k">キング塔</span></td></tr>
+          <tr><th scope="row"><span class="chip j">ジャック</span></th><td><span class="chip j">ジャック塔</span></td><td><span class="chip q">クイーン塔</span></td></tr>
+        </tbody>
+      </table>
+      <p class="nrule"><span class="chip n">N</span>（ニュートラル）は、どの塔にも出せます。ボーナスは＋0です。</p>
+
+      <div class="calc">
+        <b>1枚の点数 ＝ 数字 ＋ ボーナス</b>
+        <ul>
+          <li>キング1をジャック塔へ（攻め）：1＋2＝<strong>3点</strong></li>
+          <li>キング1をキング塔へ（守り）：1＋0＝<strong>1点</strong></li>
+          <li>ニュートラル2をどこでも：<strong>2点</strong></li>
+        </ul>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.95">塔の合計は、その塔に出した自分のカードの点数を足した数です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 勝敗 -->
+  <section class="sec win">
+    <div class="wrap">
+      <h2>勝敗は、<br>取った塔の数で決まる。</h2>
+      <p class="lead">塔ごとに合計点を比べて、<strong>高いほうがその塔を取ります</strong>。同点の塔は、だれも取りません。取った塔が多いほうの勝ち。同じ数なら引き分けです。</p>
+
+      <table class="tbl">
+        <caption style="text-align:left;font-weight:700;font-size:15px;padding:0 0 4px;caption-side:top">例：3つの塔の合計点</caption>
+        <thead><tr><th scope="col">塔</th><th scope="col" class="num">あなた</th><th scope="col" class="num">相手</th><th scope="col" class="num">取る人</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="chip k">キング塔</span></th><td class="num"><b>8</b></td><td class="num">6</td><td class="num"><b>あなた</b></td></tr>
+          <tr><th scope="row"><span class="chip q">クイーン塔</span></th><td class="num"><b>7</b></td><td class="num">6</td><td class="num"><b>あなた</b></td></tr>
+          <tr><th scope="row"><span class="chip j">ジャック塔</span></th><td class="num">5</td><td class="num"><b>9</b></td><td class="num"><b>相手</b></td></tr>
+        </tbody>
+      </table>
+      <p class="result">あなたが2塔、相手が1塔なので<strong>あなたの勝ち</strong>。合計は20対21で相手のほうが上ですが、勝ち負けは取った塔の数で決まります。</p>
+
+      <ul class="judge">
+        <li><b>勝ち</b><span>取った塔の数が、相手より多い（3−0、2−1、2−0、1−0）</span></li>
+        <li><b>負け</b><span>取った塔の数が、相手より少ない（上の逆）</span></li>
+        <li><b>引き分け</b><span>取った塔の数が同じ（1−1、0−0）</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- カードの見かた -->
+  <section class="sec">
+    <div class="wrap">
+      <h2>カードの、どこを見るの？</h2>
+      <div class="mark-box">
+        <img class="mark-img" src="images/mark_k2.png" alt="カード右下の見本：キングの塔のマークと数字の2（K2）" width="396" height="184">
+        <p>表面の<b>右下</b>にある、塔のマーク（K・Q・J・N）と数字（1か2）が、ゲームで使う情報です。</p>
+      </div>
+      <ul class="legend">
+        <li><b>K</b><span>塔の種類。K＝キング、Q＝クイーン、J＝ジャック、N＝ニュートラル</span></li>
+        <li><b>2</b><span>数字。1か2のどちらか</span></li>
+      </ul>
+      <p class="note">この見本は「K2」。キングのカードで、数字は2です。名前や写真、シリーズは勝負には関係ありません。どのシリーズのカードを混ぜても遊べます。</p>
+    </div>
+  </section>
+
+  <!-- 次へ -->
+  <section class="sec next">
+    <div class="wrap">
+      <h2>カードを集めて、<br>自分のデッキをつくろう。</h2>
+      <p class="lead">配布の予定や新しいシリーズは、決まりしだいトップページとXでお知らせします。</p>
+      <div class="btns">
+        <a class="btn btn-foil" href="./#get">カードの入手方法を見る</a>
+        <a class="btn btn-line" style="border:1.5px solid rgba(255,255,255,.7);color:#fff" href="./">トップページへ戻る</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="images/logo.png" alt="">
+  <p>© 2026 一般社団法人The Yokohama Movement</p>
+</footer>
+
+<script src="menu.js"></script>
+</body>
+</html>
