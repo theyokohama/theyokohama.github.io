@@ -119,6 +119,13 @@ h3{font-size:19px;line-height:1.7}
 .mark-box p{margin:0;font-size:15px;line-height:2;color:#E6EBF5}
 .mark-box b{color:#fff}
 .mark-img{width:198px;height:auto;border-radius:6px}
+.sub-h{margin-top:40px;font-size:20px}
+.marks{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.marks li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 4px 12px;background:#2558A8;color:#fff;border-radius:8px}
+.mk-icon{display:block;width:48px;height:48px}
+.mk-icon svg{display:block}
+.mk-l{font-family:var(--gothic);font-weight:700;font-style:italic;font-size:26px;line-height:1.2;color:#fff}
+.mk-n{font-size:12px;line-height:1.5;text-align:center;color:#E6EEFB}
 .legend{margin:20px 0 0;padding:0;list-style:none;border-top:1px solid #C9D9E6}
 .legend li{display:grid;grid-template-columns:2.2em minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0;border-bottom:1px solid #C9D9E6;font-size:15px;line-height:1.8}
 .legend b{font-family:var(--mincho);font-size:22px}
@@ -172,6 +179,12 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
   </div>
 </header>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-k" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="10" fill="#fff"/><g fill="#2558A8"><path d="M30.5 7h3v4h-3z"/><path d="M25 17l7-7 7 7z"/><rect x="26" y="17" width="12" height="6"/><rect x="24" y="23" width="16" height="31"/><rect x="9" y="38" width="15" height="16"/><rect x="40" y="38" width="15" height="16"/><rect x="6" y="54" width="52" height="4" rx="1"/><g fill="#fff"><rect x="27.5" y="27" width="2" height="9"/><rect x="31" y="27" width="2" height="9"/><rect x="34.5" y="27" width="2" height="9"/><rect x="13" y="43" width="2.5" height="6"/><rect x="18" y="43" width="2.5" height="6"/><rect x="43.5" y="43" width="2.5" height="6"/><rect x="48.5" y="43" width="2.5" height="6"/></g></g></symbol>
+<symbol id="i-q" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="10" fill="#fff"/><g fill="#2558A8"><rect x="31" y="5" width="2" height="5"/><path d="M25 19a7 8 0 0 1 14 0z"/><rect x="24" y="19" width="16" height="3"/><rect x="26" y="22" width="12" height="32"/><path d="M8 54V44h6v-4h12v14z"/><path d="M38 54V40h12v4h6v10z"/><rect x="6" y="54" width="52" height="4" rx="1"/><g fill="#fff"><rect x="30.5" y="26" width="3" height="3"/><rect x="30.5" y="33" width="3" height="3"/><rect x="30.5" y="40" width="3" height="3"/><rect x="17" y="45" width="3" height="4"/><rect x="44" y="45" width="3" height="4"/></g></g></symbol>
+<symbol id="i-j" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="10" fill="#fff"/><g fill="#2558A8"><rect x="35.25" y="3" width="1.5" height="5"/><path d="M30 17l6-10 6 10z"/><rect x="29" y="17" width="14" height="3"/><rect x="30" y="20" width="12" height="34"/><path d="M8 54V40l8-7 8 7v14z"/><rect x="24" y="42" width="6" height="12"/><rect x="42" y="44" width="12" height="10"/><rect x="6" y="54" width="52" height="4" rx="1"/><g fill="#fff"><circle cx="36" cy="26" r="3"/><rect x="34.5" y="34" width="3" height="7"/><path d="M13.5 54v-6a2.5 2.5 0 0 1 5 0v6z"/><rect x="46" y="47" width="4" height="3"/></g></g></symbol>
+<symbol id="i-n" viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="9" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="7 5"/></symbol>
+</defs></svg>
 <main>
   <!-- ヒーロー -->
   <section class="hero">
@@ -304,11 +317,16 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
         <img class="mark-img" src="images/mark_k2.png" alt="カード右下の見本：キングの塔のマークと数字の2（K2）" width="396" height="184">
         <p>表面の<b>右下</b>にある、塔のマーク（K・Q・J・N）と数字（1か2）が、ゲームで使う情報です。</p>
       </div>
-      <ul class="legend">
-        <li><b>K</b><span>塔の種類。K＝キング、Q＝クイーン、J＝ジャック、N＝ニュートラル</span></li>
-        <li><b>2</b><span>数字。1か2のどちらか</span></li>
+      <p class="note">この見本は「K2」。キングのカードで、数字は2です。</p>
+
+      <h3 class="sub-h">塔のマークは、4種類。</h3>
+      <ul class="marks" aria-label="カード右下の塔のマーク">
+        <li><span class="mk-icon"><svg width="48" height="48" aria-hidden="true"><use href="#i-k"/></svg></span><b class="mk-l">K</b><span class="mk-n">キング</span></li>
+        <li><span class="mk-icon"><svg width="48" height="48" aria-hidden="true"><use href="#i-q"/></svg></span><b class="mk-l">Q</b><span class="mk-n">クイーン</span></li>
+        <li><span class="mk-icon"><svg width="48" height="48" aria-hidden="true"><use href="#i-j"/></svg></span><b class="mk-l">J</b><span class="mk-n">ジャック</span></li>
+        <li><span class="mk-icon"><svg width="48" height="48" aria-hidden="true"><use href="#i-n"/></svg></span><b class="mk-l">N</b><span class="mk-n">ニュートラル</span></li>
       </ul>
-      <p class="note">この見本は「K2」。キングのカードで、数字は2です。名前や写真、シリーズは勝負には関係ありません。どのシリーズのカードを混ぜても遊べます。</p>
+      <p class="note">K・Q・Jのマークは、横浜三塔の建物の形（キングは神奈川県庁本庁舎、クイーンは横浜税関、ジャックは開港記念会館）。Nは塔のないカードで、点線の四角が入ります。名前や写真、シリーズは勝負には関係ありません。どのシリーズのカードを混ぜても遊べます。</p>
     </div>
   </section>
 

@@ -17,109 +17,112 @@
 <link rel="icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Lora:ital,wght@1,500;1,600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
 <style>
 :root{
-  --navy:#151F3F; --navy-2:#0E1530; --brand:#3C5FB5; --ink-2:#33405F; --muted:#55607A;
-  --ice:#EAF5FB; --line:#D5E3EE; --link:#2B4E9E;
+  --ink:#151F3F; --blue:#3C5FB5; --deep:#1E3B82; --mist:#EAF5FB; --foil:#E9C46A; --sub:#4A5573; --body:#33405F; --line:#C9D9E6;
   --know:#2B4E9E; --go:#0F7A6B; --collect:#B4500F; --play:#8A3FA8;
+  --mincho:'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --gothic:'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif;
 }
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--navy);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.8;-webkit-text-size-adjust:100%}
-a{color:var(--link)}a:hover{color:var(--navy)}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.9;-webkit-text-size-adjust:100%;overflow-x:clip}
 img{max-width:100%}
+a{color:var(--deep)}
+.nav-panel,.nav-list a,.nav-sns a{font-family:var(--gothic)}
+:focus-visible{outline:3px solid var(--foil);outline-offset:3px}
+p,li{text-wrap:pretty}
 .wrap{max-width:640px;margin:0 auto;padding:0 20px}
-.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--link)}
-h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
+h1,h2,h3{font-family:var(--mincho);font-weight:800;margin:0;letter-spacing:0}
+h2{font-size:24px;line-height:1.6}
 
-/* ヘッダー */
-.hdr{background:var(--brand);padding:12px 20px}
+.hdr{background:var(--blue);padding:12px 20px}
 .hdr-in{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 .brand img{width:36px;height:36px;border-radius:50%;display:block}
-.brand span{font-weight:900;font-size:15px;letter-spacing:.06em;color:#fff}
-.pill-link{color:#fff;font-size:13px;font-weight:700;text-decoration:none;border:1.5px solid #fff;border-radius:999px;padding:8px 14px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
-.pill-link:hover{color:#fff;background:rgba(255,255,255,.12)}
+.brand span{font-weight:700;font-size:15px;letter-spacing:.06em;color:#fff}
 
-/* パンくず */
-.crumb{font-size:12px;color:var(--muted);padding:14px 0 0}
-.crumb a{color:var(--muted)}
-
-/* 冒頭 */
-.intro{padding:20px 0 8px}
-.intro h1{margin-top:6px;font-size:28px}
-.intro p.lead{margin:14px 0 0;line-height:2}
-.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:20px}
-.role{border-radius:14px;padding:12px 4px 10px;text-align:center;color:#fff}
-.role b{display:block;font-size:20px;font-weight:900;line-height:1.3}
-.role small{display:block;font-size:11px;line-height:1.5;opacity:.95}
+/* ヒーロー */
+.hero{background:var(--blue);color:#fff;padding:28px 0 44px}
+.crumb{margin:0;font-size:14px;color:#EAF1FC}
+.crumb a{color:#EAF1FC}
+.hero h1{margin-top:18px;font-size:40px;line-height:1.35;letter-spacing:.03em;color:#fff}
+.hero .lead{margin:16px 0 0;line-height:2.05;color:#EAF1FC;max-width:34em}
+.hero .lead strong{color:#fff}
+.foil-edge{height:6px;background:var(--foil)}
+.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:26px}
+.role{border-radius:6px;padding:12px 4px 10px;text-align:center;color:#fff;outline:2px solid rgba(255,255,255,.85);outline-offset:-2px}
+.role b{display:block;font-family:var(--mincho);font-size:21px;font-weight:800;line-height:1.4}
+.role small{display:block;font-size:12px;line-height:1.5}
 .r-know{background:var(--know)}.r-go{background:var(--go)}.r-collect{background:var(--collect)}.r-play{background:var(--play)}
 
 /* 図解 */
-.diagram{background:var(--ice);margin-top:28px;padding:28px 20px 20px}
+.diagram{background:var(--mist);padding:40px 20px 28px}
 .card-fig{position:relative;max-width:340px;margin:0 auto}
 .card-fig img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 20px rgba(21,31,63,.22))}
-.pin{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--navy);color:#fff;border:2.5px solid #fff;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.3);text-decoration:none}
-.pin:hover{color:#fff;background:var(--brand)}
-.fig-note{margin:14px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+.pin{position:absolute;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;background:var(--ink);color:#fff;border:2.5px solid #fff;display:flex;align-items:center;justify-content:center;font-family:var(--mincho);font-size:15px;font-weight:800;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.3);text-decoration:none}
+.pin:hover{color:#fff;background:var(--blue)}
+.fig-note{margin:16px 0 0;text-align:center;font-size:14px;line-height:1.9;color:var(--body)}
 
-/* 解説リスト */
-.points{padding:32px 0 8px}
-.points h2{font-size:22px}
-.point{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line);scroll-margin-top:170px}
-/* 追随する小さなカード */
-.mini{position:-webkit-sticky;position:sticky;top:68px;z-index:5;margin:14px -20px 0;padding:10px 20px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 6px 12px -8px rgba(21,31,63,.25);display:flex;gap:14px;align-items:center}
+/* 解説 */
+.points{padding:56px 0 12px}
+.mini{position:-webkit-sticky;position:sticky;top:68px;z-index:5;margin:18px -20px 0;padding:10px 20px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 6px 12px -8px rgba(21,31,63,.25);display:flex;gap:14px;align-items:center}
 .mini-card{position:relative;flex:0 0 auto;width:96px}
 .mini-card img{display:block;width:100%;height:auto}
-.mpin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:rgba(21,31,63,.55);color:#fff;border:1.5px solid #fff;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;line-height:1;transition:transform .2s,background .2s}
+.mpin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:rgba(21,31,63,.55);color:#fff;border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;line-height:1;transition:transform .2s,background .2s}
 .mpin.on{background:#E8590C;transform:scale(1.45);z-index:2;box-shadow:0 0 0 3px rgba(232,89,12,.3)}
 .mini-txt{flex:1 1 auto;min-width:0}
-.mini-txt small{display:block;font-size:11px;color:var(--muted);line-height:1.5}
-.mini-txt b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:16px;font-weight:900;line-height:1.5;margin-top:2px}
-.mini-txt .mnum{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#E8590C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+.mini-txt small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.mini-txt b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--mincho);font-size:17px;font-weight:800;line-height:1.5;margin-top:2px}
+.mini-txt .mnum{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#E8590C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.point{display:flex;gap:16px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line)}
 .point:last-child{border-bottom:0}
-.num{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
-.point h3{font-size:17px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-.tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;border-radius:999px;padding:1px 10px;line-height:1.8}
-.point p{margin:6px 0 0;font-size:15px;line-height:1.9;color:var(--ink-2)}
-.rar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:12px}
-.rar div{border-radius:12px;padding:12px 2px 10px;text-align:center;border:1px solid var(--line);background:#fff}
-.rar i{display:block;margin:0 auto 6px;width:38px;height:52px;border-radius:5px;border:2px solid #fff;box-shadow:0 2px 6px rgba(21,31,63,.25)}
+.num{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mincho);font-weight:800;font-size:19px}
+.point h3{font-size:19px;line-height:1.7;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;font-family:var(--gothic);font-size:12px;font-weight:700;color:#fff;border-radius:999px;padding:1px 11px;line-height:1.8}
+.point p{margin:6px 0 0;font-size:15px;line-height:1.95;color:var(--body)}
+.rar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:14px}
+.rar div{border-radius:6px;padding:12px 2px 10px;text-align:center;border:1px solid var(--line);background:#fff}
+.rar i{display:block;margin:0 auto 6px;width:38px;height:52px;border-radius:4px;border:2px solid #fff;box-shadow:0 2px 6px rgba(21,31,63,.25)}
 .rar .c i{background:#9FB0C8}
 .rar .r i{background:linear-gradient(135deg,#B9C6D8 0%,#F4F7FB 45%,#AEBBD0 60%,#E6ECF4 100%)}
 .rar .sr i{background:linear-gradient(135deg,#E9C46A 0%,#FFF3C4 30%,#F4A3C0 50%,#A8D8F0 70%,#E9C46A 100%)}
 .rar .pr i{background:#151F3F;border-color:#E9C46A}
-.rar b{display:block;font-size:18px;font-weight:900;line-height:1.3;color:var(--navy)}
-.rar small{display:block;font-size:11px;line-height:1.5;color:var(--ink-2)}
-.soon{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--play);border:1.5px solid var(--play);border-radius:999px;padding:2px 12px}
-.santo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-.santo div{background:var(--ice);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.6;color:var(--ink-2)}
-.santo b{display:block;font-size:15px;color:var(--navy)}
+.rar b{display:block;font-family:var(--mincho);font-size:19px;font-weight:800;line-height:1.3}
+.rar small{display:block;font-size:12px;line-height:1.5;color:var(--body)}
+.santo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0 0}
+.santo div{background:var(--mist);border-radius:6px;padding:10px 12px;font-size:14px;line-height:1.6;color:var(--body)}
+.santo b{display:block;font-size:15px;color:var(--ink)}
+.tlink{display:inline-block;margin-top:12px;font-weight:700;font-size:15px}
 
 /* 裏面 */
-.back{background:var(--brand);color:#fff;padding:40px 0;margin-top:24px}
-.back .eyebrow{color:#DCEBFA}
-.back h2{color:#fff;font-size:22px;margin-top:6px}
-.back-row{display:flex;gap:20px;align-items:center;margin-top:20px;flex-wrap:wrap}
-.back-row img{width:150px;height:auto;flex:0 0 auto;filter:drop-shadow(0 10px 18px rgba(10,20,50,.4))}
+.back{background:var(--ink);color:#fff;padding:60px 0;margin-top:32px}
+.back h2{color:#fff}
+.back-row{display:flex;gap:22px;align-items:center;margin-top:24px;flex-wrap:wrap}
+.back-row img{width:150px;height:auto;flex:0 0 auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
 .back-row div{flex:1 1 200px;min-width:0}
-.back p{margin:0;line-height:1.9;font-size:15px;color:#fff}
-.spec{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.back p{margin:0;line-height:2;font-size:15px;color:#E6EBF5}
+.spec{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px;color:#E6EBF5}
 .spec li{display:flex;gap:10px}
-.spec li span:first-child{flex:0 0 72px;color:#DCEBFA}
+.spec li span:first-child{flex:0 0 72px;color:var(--foil)}
 
 /* 締め */
-.series{padding:40px 0}
-.series h2{font-size:22px;margin-top:6px}
-.series p{margin:14px 0 0;line-height:2}
-.btns{display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;box-sizing:border-box;border-radius:999px;padding:14px 24px;font-weight:700;font-size:15px;text-decoration:none}
-.btn-dark{background:var(--navy);color:#fff}.btn-dark:hover{color:#fff;background:#24305a}
-.btn-line{border:1.5px solid var(--navy);color:var(--navy)}
-
-.ftr{background:var(--navy-2);padding:24px 20px;text-align:center}
-.ftr img{width:44px;height:44px;border-radius:50%}
+.series{padding:60px 0}
+.series p{margin:18px 0 0;line-height:2.05;max-width:34em}
+.btns{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:6px;padding:14px 16px;font-weight:700;font-size:15px;text-decoration:none;text-align:center}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{filter:brightness(1.2)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink)}
+.ftr{background:#0E1530;padding:28px 20px;text-align:center}
+.ftr img{width:44px;height:44px;border-radius:50%;margin:0 auto}
 .ftr p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
+@media (min-width:760px){
+  .hero{padding:44px 0 56px}.hero .wrap{max-width:720px}.hero h1{font-size:50px}
+  h2{font-size:32px}.points{padding-top:80px}.back,.series{padding:84px 0}
+  .btns{flex-direction:row}.btns .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <link rel="stylesheet" href="menu.css">
 </head>
@@ -149,11 +152,9 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
 </header>
 
 <main>
-  <div class="wrap">
-    <nav class="crumb" aria-label="パンくずリスト"><a href="./">トップ</a> ＞ カードの特徴</nav>
-
-    <section class="intro">
-      <p class="eyebrow">カードの特徴</p>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="パンくずリスト"><a href="./">トップ</a> ＞ カードの特徴</nav>
       <h1>1枚のトレカに<br>込めた仕掛け</h1>
       <p class="lead">THE YOKOHAMA CARD は、ただ眺めるだけのカードではありません。1枚の中に、横浜を<strong>「知る・行く・集める・遊ぶ」</strong>ための4つの役割を詰めこんでいます。</p>
       <div class="roles">
@@ -162,8 +163,9 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
         <div class="role r-collect"><b>集める</b><small>番号で</small></div>
         <div class="role r-play"><b>遊ぶ</b><small>ゲームに</small></div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+  <div class="foil-edge"></div>
 
   <section class="diagram" aria-label="カードの各部分の図解">
     <div class="card-fig">
@@ -263,14 +265,14 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
         <div class="num">8</div>
         <div>
           <h3>三塔マークと数字 <span class="tag r-play">遊ぶ</span></h3>
-          <p>右下には、J・Q・K・Nのマークと数字。横浜港を見守ってきた「横浜三塔」をモチーフにしています。集めたカードが、そのままカードゲームの山札になります。</p>
+          <p>右下には、J・Q・K・Nのマークと数字。横浜港を見守ってきた「横浜三塔」をモチーフにしています。集めたカードが、そのままカードゲーム「横浜三塔ゲーム」の山札になります。</p>
           <div class="santo">
             <div><b>J ジャック</b>横浜市開港記念会館</div>
             <div><b>Q クイーン</b>横浜税関</div>
             <div><b>K キング</b>神奈川県庁本庁舎</div>
             <div><b>N ニュートラル</b>三塔以外のカード</div>
           </div>
-          <span class="soon">ゲームの詳細は リリース準備中</span>
+          <a class="tlink" href="santo-game.html">横浜三塔ゲームの遊び方を見る</a>
         </div>
       </div>
 
@@ -293,8 +295,7 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
 
   <section class="back" aria-labelledby="back-h">
     <div class="wrap">
-      <p class="eyebrow">裏面</p>
-      <h2 id="back-h">裏面は、全カード共通のデザイン</h2>
+      <h2 id="back-h">裏面は、全カード<br>共通のデザイン</h2>
       <div class="back-row">
         <img src="images/card_back.webp" alt="THE YOKOHAMA CARD のカード裏面" width="600" height="837">
         <div>
@@ -310,7 +311,6 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.5}
 
   <div class="wrap">
     <section class="series" aria-labelledby="series-h">
-      <p class="eyebrow">シリーズ</p>
       <h2 id="series-h">テーマを変えて、<br>横浜を描き続けます。</h2>
       <p>歴史、夜景、建物。年に3〜4つのテーマでシリーズを重ね、集めるほど横浜に詳しくなるコレクションをつくっていきます。</p>
       <div class="btns">
