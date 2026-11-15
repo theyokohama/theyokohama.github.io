@@ -46,6 +46,14 @@ rt{font-size:.5em;font-weight:500;letter-spacing:0;line-height:1}
 h1,h2,h3{font-family:var(--mincho);font-weight:800;margin:0;letter-spacing:.02em}
 h2{font-size:24px;line-height:1.6;letter-spacing:0}
 p,li{text-wrap:pretty}
+/* お知らせ */
+.news{padding:44px 0 8px}
+.news h2{font-size:22px}
+.news-list{margin:18px 0 0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.news-list li{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;padding:16px 0;border-bottom:1px solid #C9D9E6;font-size:15px;line-height:1.8}
+.news-list time{font-family:var(--mincho);font-weight:700;font-size:15px;color:var(--sub);white-space:nowrap}
+.news-list p{margin:0;word-break:auto-phrase}
+
 h2.ruby-h{line-height:1.9}
 .lead{margin:20px 0 0;font-size:16px;line-height:2.05;max-width:34em}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 16px;border-radius:6px;font-family:var(--gothic);font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;text-align:center}
@@ -208,6 +216,16 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
       </div>
     </div>
     <div class="foil-edge" aria-hidden="true"></div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="news" id="news" aria-labelledby="news-h">
+    <div class="wrap">
+      <h2 id="news-h">お知らせ</h2>
+      <ul class="news-list">
+        <li><time datetime="2026-11-10">2026.11.10</time><p>THE YOKOHAMA CARD の公式ホームページを公開しました。</p></li>
+      </ul>
+    </div>
   </section>
 
   <!-- 課題 -->
