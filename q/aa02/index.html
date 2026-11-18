@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>横浜赤レンガ倉庫｜THE YOKOHAMA CARD</title>
-<meta http-equiv="refresh" content="0; url=https://www.yokohama-akarenga.jp/">
+<noscript><meta http-equiv="refresh" content="0; url=https://www.yokohama-akarenga.jp/"></noscript>
 <link rel="canonical" href="https://www.yokohama-akarenga.jp/">
 <style>body{margin:0;font-family:sans-serif;color:#151F3F;background:#EAF5FB;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box}a{color:#2B4E9E;font-weight:700}</style>
 <!-- Google tag (gtag.js) -->
@@ -19,6 +19,11 @@
 </head>
 <body>
 <p>THE YOKOHAMA CARD<br>「横浜赤レンガ倉庫」の案内ページへ移動しています。<br><br><a href="https://www.yokohama-akarenga.jp/">自動で移動しない場合はこちら</a></p>
-<script>location.replace('https://www.yokohama-akarenga.jp/');</script>
+<script>
+(function(){var u='https://www.yokohama-akarenga.jp/',d=false;
+function go(){if(d)return;d=true;location.replace(u);}
+gtag('event','qr_redirect',{event_callback:go,event_timeout:1000});
+setTimeout(go,1200);})();
+</script>
 </body>
 </html>
