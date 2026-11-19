@@ -106,10 +106,10 @@ h2{font-size:28px;line-height:1.5}
 .src{margin:18px 0 0;font-size:12px;line-height:1.8;color:var(--sub)}
 
 /* 考え：写真に見出し */
-.photo-head{position:relative;color:#fff;min-height:440px;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.photo-head{position:relative;color:#fff;min-height:320px;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
 .photo-head>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%}
 .photo-head::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,45,.05) 28%,rgba(10,18,45,.85) 100%)}
-.photo-head .wrap{position:relative;z-index:1;padding-bottom:36px;padding-top:120px}
+.photo-head .wrap{position:relative;z-index:1;padding-bottom:32px;padding-top:56px}
 .photo-head h2{font-size:32px;line-height:1.45;text-shadow:0 2px 14px rgba(0,0,0,.45)}
 .idea-text{padding-top:36px;padding-bottom:60px}
 
@@ -137,6 +137,7 @@ h2{font-size:28px;line-height:1.5}
 /* 子ども */
 .kids{background:var(--blue);color:#fff}
 .kids h2{color:#fff;line-height:1.9;font-size:24px}
+.kids-ph{display:block;width:100%;max-width:440px;height:auto;margin:24px auto 0;border-radius:12px;box-shadow:0 10px 28px rgba(10,20,50,.35)}
 .kids p{margin:20px 0 0;line-height:2.15;color:#fff;max-width:34em}
 .kids p+p{margin-top:14px}
 
@@ -190,7 +191,7 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
   .next1 h2{font-size:44px}
   .gap-lines .big{font-size:84px}
   .gap-lines .big2{font-size:48px}
-  .photo-head{min-height:540px}
+  .photo-head{min-height:400px}
   .photo-head h2,.vision-photo h2{font-size:40px}
   .traits{grid-template-columns:repeat(3,1fr)}
   .wrap.wide{max-width:960px}
@@ -359,6 +360,7 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
   <section class="sec kids">
     <div class="wrap">
       <h2 class="ruby-h"><ruby>子<rt>こ</rt></ruby>どもたちへ。<br>「<ruby>横浜<rt>よこはま</rt></ruby>っておもしろい」を、<br>いちばん<ruby>最初<rt>さいしょ</rt></ruby>に。</h2>
+      <img class="kids-ph" src="images/photo_kids.webp" alt="カードを見せ合って笑顔になる子どもたち" width="578" height="440" loading="lazy">
       <p><ruby>横浜<rt>よこはま</rt></ruby>の<ruby>小学生<rt>しょうがくせい</rt></ruby>は、3<ruby>年生<rt>ねんせい</rt></ruby>から「<ruby>自分<rt>じぶん</rt></ruby>のまち」を<ruby>学<rt>まな</rt></ruby>びはじめ、<ruby>区<rt>く</rt></ruby>へ、<ruby>市<rt>し</rt></ruby>へと<ruby>世界<rt>せかい</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げていきます。カードを<ruby>集<rt>あつ</rt></ruby>めることが、その<ruby>学<rt>まな</rt></ruby>びをもっと<ruby>楽<rt>たの</rt></ruby>しくするきっかけになれたら。</p>
       <p><ruby>手<rt>て</rt></ruby>に<ruby>入<rt>い</rt></ruby>れたカードの<ruby>場所<rt>ばしょ</rt></ruby>へ、ぜひ<ruby>親子<rt>おやこ</rt></ruby>で<ruby>歩<rt>ある</rt></ruby>いてみてください。</p>
     </div>
