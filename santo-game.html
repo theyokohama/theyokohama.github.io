@@ -148,6 +148,24 @@ footer{background:#0E1530;padding:28px 20px;text-align:center}
 footer img{width:44px;height:44px;border-radius:50%;margin:0 auto}
 footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
 
+
+.flow{margin:24px -20px 0;padding:0 20px 8px;list-style:none;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:20px}
+.flow li{flex:0 0 72%;max-width:300px;scroll-snap-align:start;background:#fff;border-radius:10px;padding:18px 18px 20px;box-shadow:0 4px 18px rgba(30,59,130,.12)}
+.flow i{font-style:normal;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:900;font-size:18px}
+.flow b{display:block;margin-top:10px;font-weight:900;font-size:21px}
+.flow p{margin:4px 0 0;font-size:15px;line-height:1.8;color:#33405F}
+.ex-t{margin:26px 0 10px;font-weight:700;font-size:15px}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tw{background:#fff;border-radius:10px;padding:12px 6px 12px;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center}
+.tw .chip{font-size:13px;padding:1px 8px}
+.sc{width:100%;border-radius:8px;padding:6px 0;font-size:12px;color:var(--sub);background:#F0F4F8}
+.sc b{display:block;font-size:26px;line-height:1.2;color:var(--ink);font-weight:900}
+.sc.on{background:var(--foil)}
+.get{margin:4px 0 0;font-size:13px;font-weight:900;color:var(--blue)}
+.get.opp{color:#C0446B}
+.tally{margin:18px 0 0;display:flex;justify-content:center;align-items:baseline;gap:14px;font-weight:700}
+.tally span b{font-size:40px;font-weight:900;margin-right:4px;line-height:1}
+.tally em{font-style:normal;color:var(--sub)}
 @media (min-width:760px){
   .sec{padding:92px 0}
   h2{font-size:32px}
@@ -263,10 +281,10 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
         <b>始める前に</b>
         <p>デッキをシャッフルして山札にし、5枚引いて手札にします。ジャンケンで先攻を決めましょう。</p>
       </div>
-      <ol class="steps">
-        <li><b>引く</b><p>山札から1枚引きます。</p></li>
-        <li><b>出す</b><p>手札から1枚を選んで、塔に表向きで出します。</p></li>
-        <li><b>交代</b><p>相手の番になります。</p></li>
+      <ol class="flow">
+        <li><i>1</i><b>引く</b><p>山札から1枚引きます。</p></li>
+        <li><i>2</i><b>出す</b><p>手札から1枚を選んで、塔に表向きで出します。</p></li>
+        <li><i>3</i><b>交代</b><p>相手の番になります。</p></li>
       </ol>
       <p class="keep">引いて出すので、手札はいつも5枚。各塔で自分の列に置けるのは<strong>4枚まで</strong>です。3塔×4枚で、<strong>12枚ずつ出したら終了</strong>。手札に残った5枚は使いません。</p>
     </div>
@@ -321,15 +339,13 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
       <h2>勝敗は、<br>取った塔の数で決まる。</h2>
       <p class="lead">塔ごとに合計点を比べて、<strong>高いほうがその塔を取ります</strong>。同点の塔は、だれも取りません。取った塔が多いほうの勝ち。同じ数なら引き分けです。</p>
 
-      <table class="tbl">
-        <caption style="text-align:left;font-weight:700;font-size:15px;padding:0 0 4px;caption-side:top">例：3つの塔の合計点</caption>
-        <thead><tr><th scope="col">塔</th><th scope="col" class="num">あなた</th><th scope="col" class="num">相手</th><th scope="col" class="num">取る人</th></tr></thead>
-        <tbody>
-          <tr><th scope="row"><span class="chip k">キング塔</span></th><td class="num"><b>8</b></td><td class="num">6</td><td class="num"><b>あなた</b></td></tr>
-          <tr><th scope="row"><span class="chip q">クイーン塔</span></th><td class="num"><b>7</b></td><td class="num">6</td><td class="num"><b>あなた</b></td></tr>
-          <tr><th scope="row"><span class="chip j">ジャック塔</span></th><td class="num">5</td><td class="num"><b>9</b></td><td class="num"><b>相手</b></td></tr>
-        </tbody>
-      </table>
+      <p class="ex-t">例：3つの塔の合計点</p>
+      <div class="board" role="group" aria-label="例：キング塔はあなた8対相手6、クイーン塔はあなた7対相手6、ジャック塔はあなた5対相手9">
+        <div class="tw"><span class="chip k">キング塔</span><div class="sc me on">あなた<b>8</b></div><div class="sc">相手<b>6</b></div><p class="get">あなたが取る</p></div>
+        <div class="tw"><span class="chip q">クイーン塔</span><div class="sc me on">あなた<b>7</b></div><div class="sc">相手<b>6</b></div><p class="get">あなたが取る</p></div>
+        <div class="tw"><span class="chip j">ジャック塔</span><div class="sc me">あなた<b>5</b></div><div class="sc on">相手<b>9</b></div><p class="get opp">相手が取る</p></div>
+      </div>
+      <p class="tally"><span><b>2</b>あなた</span><em>対</em><span><b>1</b>相手</span></p>
       <p class="result">あなたが2塔、相手が1塔なので<strong>あなたの勝ち</strong>。合計は20対21で相手のほうが上ですが、勝ち負けは取った塔の数で決まります。</p>
 
       <ul class="judge">
