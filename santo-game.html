@@ -53,7 +53,8 @@ h3{font-size:19px;line-height:1.7}
 .dot{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;font-family:var(--mincho);font-weight:800;font-size:21px;color:var(--ink);flex:0 0 auto}
 
 /* ヒーロー */
-.hero{background:var(--blue);color:#fff;padding:40px 0 44px}
+.hero{position:relative;isolation:isolate;background:var(--blue) url(images/photo_minato_sp.webp) center/cover no-repeat;color:#fff;padding:40px 0 44px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,59,130,.8),rgba(60,95,181,.6) 55%,rgba(30,59,130,.9))}
 .hero .wrap{display:grid;gap:28px}
 .crumb{margin:0;font-size:14px}
 .crumb a{color:#EAF1FC}
@@ -131,7 +132,15 @@ h3{font-size:19px;line-height:1.7}
 .legend b{font-family:var(--mincho);font-size:22px}
 
 /* 次へ */
-.next{background:var(--blue);color:#fff}
+.next{position:relative;isolation:isolate;background:var(--blue) url(images/photo_park.webp) center/cover no-repeat;color:#fff}
+.next::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(30,59,130,.84)}
+.about3{padding:0}
+.about3 .ph{position:relative;height:300px;background:#151F3F url(images/photo_queen.webp) center 12%/cover no-repeat}
+.about3 .ph span{position:absolute;right:12px;bottom:10px;font-size:12px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.about3 .tx{padding-top:36px;padding-bottom:8px}
+.about3 .tx p{margin:14px 0 0;line-height:2;color:var(--body)}
+.about3 .tx ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.about3 .tx li{display:flex;align-items:center;gap:12px;font-weight:700}
 .next h2{color:#fff}
 .next .lead{color:#EAF1FC}
 .next .btns{display:grid;gap:12px;margin-top:26px}
@@ -221,6 +230,19 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
   <div class="foil-edge" aria-hidden="true"></div>
 
   <!-- デッキ -->
+  <section class="about3" aria-labelledby="about3-h">
+    <div class="ph" role="img" aria-label="夜にライトアップされたクイーンの塔（横浜税関）"><span>クイーンの塔（横浜税関）</span></div>
+    <div class="wrap tx">
+      <h2 id="about3-h">三塔は、横浜の<br>歴史ある3つの建物。</h2>
+      <p>ゲームの主役は、横浜の街を見守ってきた3つの塔です。</p>
+      <ul>
+        <li><i class="dot k">K</i>キング：神奈川県庁本庁舎</li>
+        <li><i class="dot q">Q</i>クイーン：横浜税関</li>
+        <li><i class="dot j">J</i>ジャック：横浜開港記念会館</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="wrap">
       <h2>デッキは、1人18枚。<br>2人とも同じ構成。</h2>
