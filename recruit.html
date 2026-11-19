@@ -47,7 +47,8 @@ h2{font-size:24px;line-height:1.6}
 .btn-line{border:1.5px solid var(--ink);color:var(--ink)}
 
 /* ヒーロー */
-.hero{background:var(--blue);color:#fff;padding:28px 0 44px}
+.hero{position:relative;isolation:isolate;background:var(--blue) url(images/photo_gas.webp) center 30%/cover no-repeat;color:#fff;padding:28px 0 44px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,59,130,.82) 0%,rgba(60,95,181,.6) 50%,rgba(30,59,130,.88) 100%)}
 .crumb{margin:0;font-size:14px;color:#EAF1FC}
 .crumb a{color:#EAF1FC}
 .badge{display:inline-block;margin-top:22px;background:var(--foil);color:var(--ink);border-radius:999px;padding:2px 14px;font-size:13px;font-weight:700}
@@ -110,6 +111,22 @@ h2{font-size:24px;line-height:1.6}
 .ftr{background:#0E1530;padding:28px 20px;text-align:center}
 .ftr img{width:44px;height:44px;border-radius:50%;margin:0 auto}
 .ftr p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
+
+/* 場所の写真 */
+.places{padding:52px 0 8px}
+.places h2{padding:0 20px}
+.rail{display:flex;gap:12px;overflow-x:auto;padding:22px 20px 8px;scroll-snap-type:x mandatory;scroll-padding-left:20px;-webkit-overflow-scrolling:touch}
+.rail figure{flex:0 0 74%;max-width:340px;margin:0;scroll-snap-align:start}
+.rail img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+.rail figcaption{margin-top:8px;font-weight:700;font-size:15px;color:var(--ink)}
+.places .sub{padding:0 20px;margin:12px 0 0;line-height:2;color:var(--body)}
+/* 費用 */
+.cost{border-left:0;border-radius:10px;box-shadow:0 6px 24px rgba(30,59,130,.12)}
+.cost p:first-child{font-size:18px;line-height:1.8;font-weight:700}
+/* 応募 */
+.apply{position:relative;isolation:isolate;background:var(--ink) url(images/photo_akarenga.webp) center/cover no-repeat}
+.apply::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(21,31,63,.86)}
+@media (min-width:760px){.rail{max-width:960px;margin:0 auto;padding-left:0;padding-right:0}.rail figure{flex:1 1 0}.places h2,.places .sub{max-width:960px;margin-left:auto;margin-right:auto;padding:0}}
 @media (min-width:760px){
   .hero{padding:44px 0 56px}.hero h1{font-size:44px}
   h2{font-size:32px}.sec,.apply{padding:84px 0}
@@ -158,7 +175,7 @@ h2{font-size:24px;line-height:1.6}
       <p class="crumb"><a href="./">トップ</a> ＞ PRカード参加募集</p>
       <span class="badge">PR ／ 限定プロモーションカード</span>
       <h1>あなたのお店・<br>イベントを、<br>横浜の限定トレカに。</h1>
-      <p class="lead">THE YOKOHAMA CARD では、横浜のお店やイベント、企業・団体のみなさまと一緒につくる<strong>限定プロモーションカード（PRカード）</strong>の参加者を募集しています。</p>
+      <p class="lead">THE YOKOHAMA CARD では、横浜のお店やイベント、企業・団体の皆さまと一緒に作る<strong>限定プロモーションカード（PRカード）</strong>の参加者を募集しています。</p>
       <div class="hero-cards" aria-hidden="true">
         <img class="a" src="images/card_back.webp" alt="">
         <img class="b" src="images/promo_shirakawa.webp" alt="">
@@ -167,13 +184,23 @@ h2{font-size:24px;line-height:1.6}
       <p class="imgnote">※画像はカードのイメージです</p>
       <div class="lot">
         <div class="lot-num"><b>50</b><span>枚から</span></div>
-        <p><strong>小ロットでつくれます。</strong><br>お店の常連さんへの記念品や、1日だけのイベントにも。必要な分だけ、気軽にはじめられます。</p>
+        <p><strong>小ロットで作れます。</strong><br>お店の常連さんへの記念品や、1日だけのイベントにも。必要な分だけ、気軽に始められます。</p>
       </div>
       <a class="btn btn-foil" href="#apply">応募フォームへ</a>
     </div>
   </section>
 
   <div class="foil-edge"></div>
+  <section class="places" aria-labelledby="places-h">
+    <div class="wrap"><h2 id="places-h" style="padding:0">横浜には、<br>カードにしたい場所が<br>まだまだあります。</h2></div>
+    <div class="rail">
+      <figure><img src="images/photo_gas.webp" alt="馬車道のガス灯" loading="lazy"><figcaption>日本で最初のガス灯</figcaption></figure>
+      <figure><img src="images/photo_rail.webp" alt="鉄道創業の地の記念碑" loading="lazy"><figcaption>鉄道創業の地</figcaption></figure>
+      <figure><img src="images/photo_akarenga.webp" alt="夜の赤レンガ倉庫" loading="lazy"><figcaption>赤レンガ倉庫</figcaption></figure>
+    </div>
+    <div class="wrap"><p class="sub" style="padding:0">あなたのお店やイベントも、その一つ。街の物語の一枚に加わりませんか。</p></div>
+  </section>
+
 
   <section class="sec ice" aria-labelledby="merit-h">
     <div class="wrap">
@@ -201,7 +228,7 @@ h2{font-size:24px;line-height:1.6}
 
   <section class="sec" aria-labelledby="target-h">
     <div class="wrap">
-      <h2 id="target-h">横浜を盛り上げたい、<br>すべてのみなさまへ。</h2>
+      <h2 id="target-h">横浜を盛り上げたい、<br>全ての皆さまへ。</h2>
       <div class="targets">
         <div class="target"><h3>お店</h3><p>飲食店、物販店、商店街のお店など</p></div>
         <div class="target"><h3>イベント・お祭り</h3><p>地域のお祭り、マルシェ、スポーツやライブなど</p></div>
@@ -215,9 +242,9 @@ h2{font-size:24px;line-height:1.6}
     <div class="wrap">
       <h2 id="cost-h">一緒に、横浜を盛り上げる<br>取り組みとして。</h2>
       <div class="cost">
-        <p>PRカードの制作・印刷にかかる費用は、<strong>参加されるみなさまにご負担</strong>いただきます。</p>
+        <p>PRカードの制作・印刷にかかる費用は、<strong>参加される皆さまにご負担</strong>いただきます。</p>
         <p>ただし、地域を盛り上げる取り組みとして、<strong>費用の一部は The Yokohama Movement が負担</strong>します。</p>
-        <p>カードは<strong>50枚の小ロットから</strong>つくれるので、はじめての方でも負担をおさえて参加できます。</p>
+        <p>カードは<strong>50枚の小ロットから</strong>作れるので、初めての方でも負担を抑えて参加できます。</p>
         <p style="font-size:14px;color:var(--ink-2)">具体的な金額は、カードの枚数や内容に合わせて、お打ち合わせの際にご案内します。</p>
       </div>
     </div>
@@ -229,8 +256,8 @@ h2{font-size:24px;line-height:1.6}
       <ol class="steps">
         <li><span class="sn">1</span><div><h3>フォームから応募</h3><p>お店やイベントの概要、ご希望をお知らせください。</p></div></li>
         <li><span class="sn">2</span><div><h3>ご連絡・お打ち合わせ</h3><p>担当からご連絡し、カードの内容・枚数・費用・スケジュールをご相談します。</p></div></li>
-        <li><span class="sn">3</span><div><h3>撮影・取材</h3><p>カードに載せる写真と、説明文のためのお話をうかがいます。</p></div></li>
-        <li><span class="sn">4</span><div><h3>カード制作・ご確認</h3><p>デザインをつくり、内容をご確認いただいてから印刷します。</p></div></li>
+        <li><span class="sn">3</span><div><h3>撮影・取材</h3><p>カードに載せる写真と、説明文のためのお話を伺います。</p></div></li>
+        <li><span class="sn">4</span><div><h3>カード制作・ご確認</h3><p>デザインを作り、内容をご確認いただいてから印刷します。</p></div></li>
         <li><span class="sn">5</span><div><h3>お届け・配布スタート</h3><p>完成したカードをお届けします。配布方法もご一緒に考えます。</p></div></li>
       </ol>
     </div>
@@ -239,7 +266,7 @@ h2{font-size:24px;line-height:1.6}
   <section class="apply" id="apply" aria-labelledby="apply-h">
     <div class="wrap">
       <h2 id="apply-h">まずは、お気軽に<br>ご応募ください。</h2>
-      <p class="txt">「こんなカードはつくれる？」といったご相談からでも大丈夫です。</p>
+      <p class="txt">「こんなカードは作れる？」といったご相談からでも大丈夫です。</p>
       <a class="btn btn-foil" href="https://docs.google.com/forms/d/e/1FAIpQLSezPtghpYAxSTOrq0ilMazjjycAcRDmxfvw2i1U1P-96aasQg/viewform" target="_blank" rel="noopener">応募フォームを開く（Googleフォーム）</a>
       <p class="mail">メールでのご相談：<img src="images/contact_email_text.png" alt="お問い合わせ用メールアドレス"></p>
       <p class="note">※ご応募の内容によっては、ご希望に添えない場合があります。あらかじめご了承ください。</p>
