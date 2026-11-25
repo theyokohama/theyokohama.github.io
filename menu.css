@@ -17,6 +17,7 @@ body.nav-open{overflow:hidden}
 .nav-list a[aria-current="page"] small{color:#E9C46A}
 .nav-list svg{flex:0 0 auto;opacity:.7}
 .nav-sns{margin:0 auto;padding:0 20px 32px;width:100%;max-width:640px;box-sizing:border-box}
+.nav-sns a+a{margin-top:10px}
 .nav-sns a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;border:1.5px solid rgba(255,255,255,.6);border-radius:999px;color:#fff;text-decoration:none;font-weight:700;font-size:15px}
 
 /* 共通：グローバルナビ（上部固定） */
