@@ -129,10 +129,10 @@ h2{font-size:28px;line-height:1.5}
 /* 3つの仕掛け */
 .traits{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:14px}
 .traits li{background:var(--mist);border-radius:10px;padding:24px 20px 22px;overflow:hidden}
-.traits .visual{display:flex;align-items:center;justify-content:center;min-height:96px;margin-bottom:12px}
+.traits .visual{display:flex;align-items:center;justify-content:center;height:112px;margin-bottom:14px}
 .traits .ruby-demo{font-size:56px;font-weight:900;line-height:1.5;color:var(--ink)}
 .traits .ruby-demo rt{font-size:.3em;color:var(--blue)}
-.traits .fan3{width:112%;max-width:none;margin:-6px -6% 6px;filter:drop-shadow(0 10px 16px rgba(21,31,63,.28))}
+.traits .fan3{display:block;width:auto;max-width:100%;height:112px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 10px 16px rgba(21,31,63,.28))}
 .traits h3{font-size:21px;line-height:1.6}
 .traits p{margin:6px 0 0;font-size:15px;line-height:1.95;color:var(--body)}
 .tlink{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-weight:900;font-size:15px;color:var(--deep);text-decoration:underline;text-underline-offset:4px}
@@ -203,6 +203,7 @@ footer p{margin:8px 0 0;font-size:12px;color:#BFD0F0}
   .photo-head{min-height:400px}
   .photo-head h2,.vision-photo h2{font-size:40px}
   .traits{grid-template-columns:repeat(3,1fr)}
+  .traits h3{min-height:3.2em}
   .wrap.wide{max-width:960px}
 }
 @media (prefers-reduced-motion:reduce){
